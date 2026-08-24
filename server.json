@@ -1,0 +1,23 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-09-29/server.schema.json",
+  "name": "io.github.imysfylmz/xrechnung-mcp",
+  "description": "Validate and parse German e-invoices (XRechnung, ZUGFeRD, Factur-X) offline. No API key.",
+  "repository": {
+    "url": "https://github.com/imysfylmz/e-rechnung-inbox",
+    "source": "github"
+  },
+  "websiteUrl": "https://www.e-rechnung-inbox.de",
+  "version": "0.1.1",
+  "packages": [
+    {
+      "registryType": "npm",
+      "registryBaseUrl": "https://registry.npmjs.org",
+      "identifier": "@e-rechnung-inbox/xrechnung-mcp",
+      "version": "0.1.1",
+      "runtimeHint": "npx",
+      "transport": {
+        "type": "stdio"
+      }
+    }
+  ]
+}

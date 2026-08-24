@@ -1,0 +1,10 @@
+# Smithery configuration — https://smithery.ai
+# Local stdio server, installed from npm at call time. No hosting,
+# no API key, pure local computation.
+startCommand:
+  type: stdio
+  configSchema:
+    type: object
+    properties: {}
+  commandFunction: |-
+    () => ({ command: "npx", args: ["-y", "@e-rechnung-inbox/xrechnung-mcp"] })

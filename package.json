@@ -1,0 +1,53 @@
+{
+  "name": "@e-rechnung-inbox/xrechnung-mcp",
+  "mcpName": "io.github.imysfylmz/xrechnung-mcp",
+  "version": "0.1.1",
+  "description": "Model Context Protocol server for XRechnung / ZUGFeRD / Factur-X validation and parsing. Stateless, offline, no API key.",
+  "license": "MIT",
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "claude",
+    "xrechnung",
+    "zugferd",
+    "facturx",
+    "einvoice",
+    "e-rechnung",
+    "en16931"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/imysfylmz/e-rechnung-inbox.git",
+    "directory": "packages/xrechnung-mcp"
+  },
+  "homepage": "https://e-rechnung-inbox.de",
+  "type": "module",
+  "main": "./dist/index.js",
+  "bin": {
+    "xrechnung-mcp": "./dist/index.js"
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "lint": "echo 'xrechnung-mcp: lint handled by root eslint'",
+    "test": "echo 'xrechnung-mcp: tests run via root vitest'",
+    "smoke": "node scripts/smoke.mjs",
+    "prepublishOnly": "npm run build"
+  },
+  "dependencies": {
+    "@e-rechnung-inbox/xrechnung-core": "0.1.1",
+    "@hono/node-server": "2.0.12",
+    "@modelcontextprotocol/sdk": "^1.30.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "typescript": "^5"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

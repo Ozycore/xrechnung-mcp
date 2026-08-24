@@ -1,0 +1,51 @@
+name: Sync mirror from npm
+
+# This repo is a read-only source mirror of the published npm package
+# @e-rechnung-inbox/xrechnung-mcp. Weekly (and on demand) it re-extracts
+# the latest npm tarball and commits any drift. Tokenless: the job's own
+# GITHUB_TOKEN pushes to this repository only.
+
+on:
+  schedule:
+    - cron: "17 6 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      # actions/checkout pinned to v7.0.1 tag commit.
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+
+      # actions/setup-node pinned to v7.0.0 tag commit.
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020
+        with:
+          node-version: 22
+
+      - name: Extract latest npm tarball over the mirror
+        run: |
+          set -euo pipefail
+          npm pack @e-rechnung-inbox/xrechnung-mcp --pack-destination /tmp
+          mkdir -p /tmp/extract
+          tar xzf /tmp/e-rechnung-inbox-xrechnung-mcp-*.tgz -C /tmp/extract
+          # The mirror tracks source + manifest; README/LICENSE/smithery.yaml
+          # and this workflow are mirror-owned and never overwritten.
+          rsync -a --delete /tmp/extract/package/src/ src/ 2>/dev/null || true
+          cp /tmp/extract/package/package.json package.json
+
+      - name: Commit drift, if any
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "mirror already in sync"
+          else
+            VERSION=$(node -p "require('./package.json').version")
+            git commit -m "sync: mirror @e-rechnung-inbox/xrechnung-mcp@${VERSION} from npm"
+            git push
+          fi

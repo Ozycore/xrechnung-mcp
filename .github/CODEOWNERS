@@ -1,0 +1,15 @@
+# OzyCore critical paths — routine changes do not require blanket ownership.
+/.github/workflows/ @imysfylmz @ddilanates
+/.github/CODEOWNERS @imysfylmz @ddilanates
+/src/actions/ @imysfylmz @ddilanates
+/app/actions/ @imysfylmz @ddilanates
+/middleware.ts @imysfylmz @ddilanates
+/src/middleware.ts @imysfylmz @ddilanates
+/src/lib/supabase*.ts @imysfylmz @ddilanates
+/messages/ @imysfylmz @ddilanates
+/src/messages/ @imysfylmz @ddilanates
+/supabase/ @imysfylmz @ddilanates
+/functions/ @imysfylmz @ddilanates
+/firebase.json @imysfylmz @ddilanates
+/firestore.rules @imysfylmz @ddilanates
+/storage.rules @imysfylmz @ddilanates

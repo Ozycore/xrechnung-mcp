@@ -2,7 +2,7 @@
 > [`@e-rechnung-inbox/xrechnung-mcp`](https://www.npmjs.com/package/@e-rechnung-inbox/xrechnung-mcp).
 > Development happens in the (private) e-Rechnung Inbox monorepo; a
 > scheduled workflow keeps this mirror in sync with the npm release.
-> Issues are closed here — reach us via https://www.e-rechnung-inbox.de.
+> Issues are closed here — reach us via [e-rechnung-inbox.de](https://www.e-rechnung-inbox.de/?utm_source=github&utm_medium=mcp-mirror).
 
 # @e-rechnung-inbox/xrechnung-mcp
 
@@ -12,7 +12,7 @@ e-invoices — **XRechnung**, **ZUGFeRD**, and **Factur-X**.
 Stateless. Offline. No API key. Pure local computation over bytes you
 paste in. Runs via `npx`, so there's nothing to install permanently.
 
-Built by [e-Rechnung Inbox](https://www.e-rechnung-inbox.de) — DACH
+Built by [e-Rechnung Inbox](https://www.e-rechnung-inbox.de/?utm_source=github&utm_medium=mcp-mirror) — DACH
 compliance infrastructure for German e-invoicing (XRechnung
 Empfangspflicht eff. 2025-01-01). Used in production by
 Steuerberater and SMB developers who need an offline, no-API-key
@@ -245,10 +245,11 @@ is stored between turns.
 
 ## Source
 
-Source lives in the [e-rechnung-inbox monorepo](https://github.com/imysfylmz/e-rechnung-inbox)
-under `packages/xrechnung-mcp`. The underlying parser/validator lives
-alongside in `@e-rechnung-inbox/xrechnung-core`, also on npm, if you
-want to use the logic directly without MCP.
+This repository is the read-only source mirror of the npm package
+(development happens in a private monorepo). The underlying
+parser/validator is published separately as
+`@e-rechnung-inbox/xrechnung-core`, also on npm, if you want to use the
+logic directly without MCP.
 
 ## License
 
@@ -256,5 +257,5 @@ MIT.
 
 ---
 
-*Built by [e-Rechnung Inbox](https://www.e-rechnung-inbox.de) — DACH
+*Built by [e-Rechnung Inbox](https://www.e-rechnung-inbox.de/?utm_source=github&utm_medium=mcp-mirror) — DACH
 compliance infrastructure.*
